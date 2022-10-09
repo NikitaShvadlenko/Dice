@@ -27,6 +27,7 @@ final class MainScreenView: UIView {
         let view = UIImageView()
         view.image = Asset.diceOne.image
         view.contentMode = .scaleAspectFit
+        view.alpha = 0
         return view
     }()
 
@@ -34,6 +35,7 @@ final class MainScreenView: UIView {
         let view = UIImageView()
         view.image = Asset.diceOne.image
         view.contentMode = .scaleAspectFit
+        view.alpha = 0
         return view
     }()
 
@@ -89,6 +91,8 @@ extension MainScreenView {
     func configure(diceOneImage: UIImage, diceTwoImage: UIImage) {
         diceOneImageView.image = diceOneImage
         diceTwoImageView.image = diceTwoImage
+        diceOneImageView.alpha = 1
+        diceTwoImageView.alpha = 1
     }
 }
 
