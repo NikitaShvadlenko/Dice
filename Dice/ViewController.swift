@@ -10,5 +10,12 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        mainScreenView.rollButtonDelegate = self
+    }
+}
+
+extension ViewController: RollButtonDelegate {
+    func mainScreenViewDidPressRollButton(_ mainScreenView: MainScreenView) {
+        print("Button Pressed")
     }
 }
