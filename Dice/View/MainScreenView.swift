@@ -23,14 +23,14 @@ final class MainScreenView: UIView {
         return containerView
     }()
 
-    private lazy var dice1View: UIImageView = {
+    private lazy var diceOneImageView: UIImageView = {
         let view = UIImageView()
         view.image = Asset.diceOne.image
         view.contentMode = .scaleAspectFit
         return view
     }()
 
-    private lazy var dice2View: UIImageView = {
+    private lazy var diceTwoImageView: UIImageView = {
         let view = UIImageView()
         view.image = Asset.diceOne.image
         view.contentMode = .scaleAspectFit
@@ -38,7 +38,7 @@ final class MainScreenView: UIView {
     }()
 
     private lazy var horizontalStackView: UIStackView = {
-        let stackview = UIStackView(arrangedSubviews: [dice1View, dice2View])
+        let stackview = UIStackView(arrangedSubviews: [diceOneImageView, diceTwoImageView])
         stackview.axis = .horizontal
         stackview.distribution = .equalSpacing
         stackview.spacing = 80
@@ -57,8 +57,6 @@ final class MainScreenView: UIView {
         button.backgroundColor = Asset.Colors.rollButtonColor.color
         button.setTitle(L10n.roll, for: .normal)
         button.layer.cornerRadius = 5
-        button.isUserInteractionEnabled = true
-        button.isEnabled = true
         button.addTarget(self, action: #selector(rollButtonPressed), for: .touchDown)
         return button
     }()
@@ -84,6 +82,13 @@ final class MainScreenView: UIView {
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+}
+// MARK: - Public Methods
+extension MainScreenView {
+    func configure(diceOneImage: UIImage, diceTwoImage: UIImage) {
+        diceOneImageView.image = diceOneImage
+        diceTwoImageView.image = diceTwoImage
     }
 }
 

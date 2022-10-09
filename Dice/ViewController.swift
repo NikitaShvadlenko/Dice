@@ -16,6 +16,11 @@ class ViewController: UIViewController {
 
 extension ViewController: RollButtonDelegate {
     func mainScreenViewDidPressRollButton(_ mainScreenView: MainScreenView) {
-        print("Button Pressed")
+        let diceOne = Int.random(in: 1...6)
+        let diceTwo = Int.random(in: 1...6)
+        mainScreenView.configure(
+            diceOneImage: ValueToImageConverter.diceImage(for: diceOne),
+            diceTwoImage: ValueToImageConverter.diceImage(for: diceTwo)
+        )
     }
 }
