@@ -1,0 +1,15 @@
+strings:
+  inputs:
+    - Dice/Resources/Strings/en.lproj
+  outputs:
+    - templateName: structured-swift5
+      output: Dice/Generated/Strings+Generated.swift
+
+xcassets:
+  inputs:
+    - Dice/Resources/Assets.xcassets
+  outputs:
+    - templateName: swift5
+      params:
+        forceProvidesNamespaces: true
+      output: Dice/Generated/XCAssets+Generated.swift
