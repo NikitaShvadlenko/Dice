@@ -85,13 +85,9 @@ final class MainScreenView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
-    @objc
-    private func rollButtonPressed() {
-        rollButtonDelegate?.mainScreenViewDidPressRollButton(self)
-    }
 }
 
+// MARK: - Private Methods
 extension MainScreenView {
     private func setupView() {
         addSubview(backgroundView)
@@ -111,5 +107,10 @@ extension MainScreenView {
             make.height.equalTo(60)
             make.top.equalTo(stackView.snp.bottom)
         }
+    }
+
+    @objc
+    private func rollButtonPressed() {
+        rollButtonDelegate?.mainScreenViewDidPressRollButton(self)
     }
 }
