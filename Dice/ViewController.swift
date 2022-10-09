@@ -15,7 +15,6 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        casinoManager.view = mainScreenView
         mainScreenView.rollButtonDelegate = self
     }
 
@@ -30,5 +29,9 @@ class ViewController: UIViewController {
 extension ViewController: RollButtonDelegate {
     func mainScreenViewDidPressRollButton(_ mainScreenView: MainScreenView) {
         casinoManager.rollDice()
+        mainScreenView.configure(
+            diceOneImage: ValueToImageConverter.diceImage(for: casinoManager.diceOne),
+            diceTwoImage: ValueToImageConverter.diceImage(for: casinoManager.diceTwo)
+        )
     }
 }
