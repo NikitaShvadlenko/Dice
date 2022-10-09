@@ -3,6 +3,7 @@ import UIKit
 class ViewController: UIViewController {
 
     let mainScreenView = MainScreenView()
+    var casinoManager = CasinoManager()
 
     override func loadView() {
         view = mainScreenView
@@ -14,12 +15,13 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        casinoManager.view = mainScreenView
         mainScreenView.rollButtonDelegate = self
     }
 
     override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
         if motion == .motionShake {
-            rollDice()
+            casinoManager.rollDice()
         }
     }
 }
@@ -27,18 +29,6 @@ class ViewController: UIViewController {
 // MARK: - RollButtonDelegate
 extension ViewController: RollButtonDelegate {
     func mainScreenViewDidPressRollButton(_ mainScreenView: MainScreenView) {
-        rollDice()
-    }
-}
-
-// MARK: - Private Methods
-extension ViewController {
-    private func rollDice() {
-        let diceOne = Int.random(in: 1...6)
-        let diceTwo = Int.random(in: 1...6)
-        mainScreenView.configure(
-            diceOneImage: ValueToImageConverter.diceImage(for: diceOne),
-            diceTwoImage: ValueToImageConverter.diceImage(for: diceTwo)
-        )
+        casinoManager.rollDice()
     }
 }
